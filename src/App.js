@@ -1,107 +1,68 @@
 import React, { Component } from 'react';
 import './App.css';
+import Basics from './pages/Basics';
+import Work from './pages/Work';
+import Volunteer from './pages/Volunteer';
+import Education from './pages/Education';
+import Awards from './pages/Awards';
+import Publications from './pages/Publications';
+import Skills from './pages/Skills';
+import Languages from './pages/Languages';
+import Interests from './pages/Interests';
+import References from './pages/References';
 
 class App extends Component {
-    constructor() {
-      super()
-      this.state = {
-        basics: {
-          name: "John Doe",
-          label: "Programmer",
-          picture: "",
-          email: "john@gmail.com",
-          phone: "(912) 555-4321",
-          website: "http://johndoe.com",
-          summary: "A summary of John Doe...",
-          location: {
-            address: "2712 Broadway St",
-            postalCode: "CA 94115",
-            city: "San Francisco",
-            countryCode: "US",
-            region: "California"
-          },
-          profiles: [{
-            network: "Twitter",
-            username: "john",
-            url: "http://twitter.com/john"
-          }]
-        },
-        work: [{
-          company: "Company",
-          position: "President",
-          website: "http://company.com",
-          startDate: "2013-01-01",
-          endDate: "2014-01-01",
-          summary: "Description...",
-          highlights: [
-            "Started the company"
-          ]
-        }],
-        volunteer: [{
-          organization: "Organization",
-          position: "Volunteer",
-          website: "http://organization.com/",
-          startDate: "2012-01-01",
-          endDate: "2013-01-01",
-          summary: "Description...",
-          highlights: [
-            "Awarded 'Volunteer of the Month'"
-          ]
-        }],
-        education: [{
-          institution: "University",
-          area: "Software Development",
-          studyType: "Bachelor",
-          startDate: "2011-01-01",
-          endDate: "2013-01-01",
-          gpa: "4.0",
-          courses: [
-            "DB1101 - Basic SQL"
-          ]
-        }],
-        awards: [{
-          title: "Award",
-          date: "2014-11-01",
-          awarder: "Company",
-          summary: "There is no spoon."
-        }],
-        publications: [{
-          name: "Publication",
-          publisher: "Company",
-          releaseDate: "2014-10-01",
-          website: "http://publication.com",
-          summary: "Description..."
-        }],
-        skills: [{
-          name: "Web Development",
-          level: "Master",
-          keywords: [
-            "HTML",
-            "CSS",
-            "Javascript"
-          ]
-        }],
-        languages: [{
-          language: "English",
-          fluency: "Native speaker"
-        }],
-        interests: [{
-          name: "Wildlife",
-          keywords: [
-            "Ferrets",
-            "Unicorns"
-          ]
-        }],
-        references: [{
-          name: "Jane Doe",
-          reference: "Reference..."
-        }]
+  constructor() {
+    super()
+    this.state = {
+      basics: {},
+      work: [],
+      volunteer: [],
+      education: [],
+      awards: [],
+      publications: [],
+      skills: [],
+      languages: [],
+      interests: [],
+      references: []
+    }
+  }
+
+  mapArray = (obj) => {
+    for (let [key, value] of Object.entries(obj)) {
+      if (!Array.isArray(obj[key])) {
+      return <li>{key.toUpperCase()}: {value}</li>
+      } else {
+        return (
+          <>
+            <li>{key.toUpperCase()}:</li>
+            <ul>
+              {obj[keys].map((key, id) => {
+                return (
+                  <li key={id}>{key}</li>
+                )
+              })}
+            </ul>
+          </>
+        )
       }
     }
+  }
+
+
   render() {
     return (
       <>
-      <h1>SUP</h1>
+        <Basics />
+        <Work mapArray={this.mapArray}/>
+        <Volunteer mapArray={this.mapArray}/>
+        <Education mapArray={this.mapArray}/>
+        <Awards mapArray={this.mapArray}/>
+        <Publications mapArray={this.mapArray}/>
+        <Skills mapArray={this.mapArray}/>
+        <Languages mapArray={this.mapArray}/>
+        <Interests mapArray={this.mapArray}/>
+        <References mapArray={this.mapArray}/>
       </>
     );
   }
