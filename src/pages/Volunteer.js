@@ -20,8 +20,26 @@ class Volunteer extends Component {
     render() {
         const { volunteer } = this.state;
         return (
-            volunteer.map((role) => {
-                this.props.mapArray(role);
+            volunteer.map((role, id) => {
+                const { organization, position, website, startDate, endDate, summary, highlights } = role;
+                return (
+                    <ul key={id}>
+                        <li>Organization: {organization}</li>
+                        <li>Position: {position}</li>
+                        <li>Website: {website}</li>
+                        <li>Start Date: {startDate}</li>
+                        <li>End Date: {endDate}</li>
+                        <li>Summary: {summary}</li>
+                        <li>Highlights:</li>
+                        <ul>
+                            {highlights.map((highlight, id) => {
+                                return (
+                                    <li key={id}>{highlight}</li>
+                                )
+                            })}
+                        </ul>
+                    </ul>
+                )
             })
         )
     }

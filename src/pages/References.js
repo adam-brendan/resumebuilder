@@ -13,8 +13,14 @@ class References extends Component {
     render() {
         const { references } = this.state;
         return (
-            references.map((ref) => {
-                this.props.mapArray(ref);
+            references.map((ref, id) => {
+                const { name, reference } = ref;
+                return (
+                    <ul key={id}>
+                        <li>Name: {name}</li>
+                        <li>Reference: {reference}</li>
+                    </ul>
+                )
             })
         )
     }

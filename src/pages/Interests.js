@@ -16,8 +16,21 @@ class Interests extends Component {
     render() {
         const { interests } = this.state;
         return (
-            interests.map((interest) => {
-                this.props.mapArray(interest);
+            interests.map((interest, id) => {
+                const { name, keywords } = interest;
+                return (
+                    <ul key={id}>
+                        <li>Name: {name}</li>
+                        <li>Keywords:</li>
+                        <ul>
+                            {keywords.map((keyword, id) => {
+                                return (
+                                    <li key={id}>{keyword}</li>
+                                )
+                            })}
+                        </ul>
+                    </ul>
+                )
             })
         )
     }

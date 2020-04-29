@@ -4,17 +4,18 @@ class Work extends Component {
     constructor() {
         super()
         this.state = {
-            work: [{
-                company: "Company",
-                position: "President",
-                website: "http://company.com",
-                startDate: "2013-01-01",
-                endDate: "2014-01-01",
-                summary: "Description...",
-                highlights: [
-                  "Started the company"
-                ]
-            }]
+            formSubmitted: false;
+            // work: [{
+            //     company: "Company",
+            //     position: "President",
+            //     website: "http://company.com",
+            //     startDate: "2013-01-01",
+            //     endDate: "2014-01-01",
+            //     summary: "Description...",
+            //     highlights: [
+            //       "Started the company"
+            //     ]
+            // }]
         }
     }
     render() {

@@ -10,6 +10,7 @@ import Skills from './pages/Skills';
 import Languages from './pages/Languages';
 import Interests from './pages/Interests';
 import References from './pages/References';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor() {
@@ -28,25 +29,29 @@ class App extends Component {
     }
   }
 
-  mapArray = (obj) => {
-    for (let [key, value] of Object.entries(obj)) {
-      if (!Array.isArray(obj[key])) {
-      return <li>{key.toUpperCase()}: {value}</li>
-      } else {
-        return (
-          <>
-            <li>{key.toUpperCase()}:</li>
-            <ul>
-              {obj[keys].map((key, id) => {
-                return (
-                  <li key={id}>{key}</li>
-                )
-              })}
-            </ul>
-          </>
-        )
-      }
-    }
+  mapArray = (obj, id) => {
+    // return (
+    //   <ul key={id}>
+    //     {for (let [key, value] of Object.entries(obj)) {
+    //         if (!Array.isArray(obj[key])) {
+    //         return <li>{key.toUpperCase()}: {value}</li>
+    //         } else {
+    //           return (
+    //             <>
+    //               <li>{key.toUpperCase()}:</li>
+    //               <ul>
+    //                 {obj[keys].map((key, id) => {
+    //                   return (
+    //                     <li key={id}>{key}</li>
+    //                   )
+    //                 })}
+    //               </ul>
+    //             </>
+    //           )
+    //         }
+    //       }}
+    //   </ul>
+    // )
   }
 
 
@@ -54,15 +59,15 @@ class App extends Component {
     return (
       <>
         <Basics />
-        <Work mapArray={this.mapArray}/>
-        <Volunteer mapArray={this.mapArray}/>
-        <Education mapArray={this.mapArray}/>
-        <Awards mapArray={this.mapArray}/>
-        <Publications mapArray={this.mapArray}/>
-        <Skills mapArray={this.mapArray}/>
-        <Languages mapArray={this.mapArray}/>
-        <Interests mapArray={this.mapArray}/>
-        <References mapArray={this.mapArray}/>
+        <Work />
+        {/* <Volunteer />
+        <Education />
+        <Awards />
+        <Publications />
+        <Skills />
+        <Languages />
+        <Interests />
+        <References /> */}
       </>
     );
   }
